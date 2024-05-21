@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+    app:
+        image: fastapi-app
+        build:
+            context: .
+            dockerfile: Dockerfile.app
+        environment:
+            KEY: my-env-variable
+        volumes:
+            - ./www:/app/www
+
+    nginx:
+        image: nginx-proxy
+        build:
+            context: .
+            dockerfile: Dockerfile.nginx
+        configs:
+            - source: nginx_conf
+              target: /etc/nginx/nginx.conf       
+        ports:
+            - 8081:80
+            - 4431:443
+        secrets:
+           - source: cert
+             target: /etc/ssl/private/cert.pem
+           - source: key
+             target: /etc/ssl/private/key.pem
+
+secrets:
+    cert:
+        file: cert.pem
+    key:
+        file: key.pem
+
+configs:
+    nginx_conf:
+        file: nginx.conf
+
+

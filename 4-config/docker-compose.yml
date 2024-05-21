@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+    app:
+        image: fastapi-app
+        build:
+            context: .
+            dockerfile: Dockerfile.app
+        environment:
+            KEY: my-env-variable
+        volumes:
+            - ./www:/app/www
+    nginx:
+        image: nginx-proxy
+        build:
+            context: .
+            dockerfile: Dockerfile.nginx
+        configs:
+            - source: nginx_conf
+              target: /etc/nginx/nginx.conf
+        ports:
+            - 8081:80
+
+configs:
+    nginx_conf:
+        file: nginx.conf
