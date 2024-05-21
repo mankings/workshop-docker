@@ -1,11 +1,6 @@
-# João Paulo Barraca
-# Diving into docker
-
 FROM python:3.8-alpine
 
-MAINTAINER João Paulo Barraca
-
-LABEL version="1.0"
+LABEL maintainer="Miguel Matos"
 
 RUN mkdir /app
 RUN mkdir /app/www
@@ -19,6 +14,7 @@ RUN pip install -r requirements.txt
 COPY app.py app.py
 
 EXPOSE 8080/tcp
+
 VOLUME /app/www
 
 ENTRYPOINT ["python3", "app.py"]
