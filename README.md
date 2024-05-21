@@ -69,3 +69,9 @@ docker system prune --all
 1. [Docker Docs](https://docs.docker.com/)
 2. [Docker Compose Section](https://docs.docker.com/compose/)
 3. Lab Docker do Prof. João Paulo Barraca
+
+## Appendix
+
+Coisas que achei que faltaram depois de dar o workshop:
+- Exemplos de uso para ambientes de dev, staging e prod
+- Conclusão nos slides
