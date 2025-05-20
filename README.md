@@ -33,9 +33,8 @@ docker push mankings/app:v1
 ### Persistence
 
 ```bash
-docker build . -t persistence
-docker run -p 8080:8080 -v "$(pwd)"/www:/app/www persistence
-docker run -p 8080:8080 --mount type=bind,source="$(pwd)"/www,target=/app/www persistence # use a bind mount instead of a volume
+docker build . -t app2
+docker run -p 8080:8080 -v "$(pwd)"/www:/app/www app2
 ```
 
 ### Compose
@@ -56,7 +55,7 @@ docker compose up
 docker compose up
 ```
 
-## Cheat Sheet
+## Final tip
 
 Remove all unused images, volumes and networks
 
@@ -72,6 +71,5 @@ docker system prune --all
 
 ## Appendix
 
-Coisas que achei que faltaram depois de dar o workshop:
+Future topics:
 - Exemplos de uso para ambientes de dev, staging e prod
-- Conclusão nos slides

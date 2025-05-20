@@ -12,9 +12,9 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 COPY app.py app.py
-EXPOSE 8080/tcp
+EXPOSE 8080
 
 # Define a local volume for the data
 VOLUME /app/www
 
-ENTRYPOINT ["python3", "app.py"]
+CMD ["python3", "app.py"]

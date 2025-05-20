@@ -21,7 +21,7 @@ RUN pip install -r requirements.txt
 COPY app.py app.py
 
 # Expose the port of the service
-EXPOSE 8080/tcp
+EXPOSE 8080
 
-# Define the entrypoint/command to run when the container starts
-ENTRYPOINT ["python3", "app.py"]
+# Define the command to run when the container starts
+CMD ["python3", "app.py"]
