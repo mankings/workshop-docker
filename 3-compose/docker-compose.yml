@@ -1,7 +1,6 @@
 version: "3.8"
 services:
     app:
-        image: fastapi-app
         build:
             context: .
             dockerfile: Dockerfile.app
@@ -9,7 +8,6 @@ services:
             - ./www:/app/www
 
     nginx:
-        image: nginx-proxy
         build:
             context: .
             dockerfile: Dockerfile.nginx
