@@ -11,10 +11,7 @@ services:
             - ./www:/app/www
 
     nginx:
-        image: nginx-proxy
-        build:
-            context: .
-            dockerfile: Dockerfile.nginx
+        image: nginx:latest
         configs:
             - source: nginx_conf
               target: /etc/nginx/nginx.conf       
