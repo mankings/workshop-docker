@@ -1,5 +1,5 @@
 # Base image
-FROM python:3.8-alpine
+FROM python:3.12-alpine
 
 # Image labels/tags
 LABEL maintainer="Miguel Matos"
