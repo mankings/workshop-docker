@@ -4,23 +4,25 @@ services:
             context: .
             dockerfile: Dockerfile.app
         environment:
-            KEY: my-env-variable
+            my-env-variable: "hello from the compose file!"
         volumes:
             - ./www:/app/www
 
     nginx:
         image: nginx:latest
-        configs:
-            - source: nginx_conf
-              target: /etc/nginx/nginx.conf       
         ports:
             - 8081:80
             - 4431:443
+        configs:
+            - source: nginx_conf
+              target: /etc/nginx/nginx.conf       
         secrets:
            - source: cert
              target: /etc/ssl/private/cert.pem
            - source: key
              target: /etc/ssl/private/key.pem
+        depends_on:
+            - app
 
 secrets:
     cert:
@@ -31,5 +33,3 @@ secrets:
 configs:
     nginx_conf:
         file: nginx.conf
-
-

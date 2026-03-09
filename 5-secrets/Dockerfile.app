@@ -2,8 +2,7 @@ FROM python:3.12-alpine
 
 LABEL maintainer="Miguel Matos"
 
-RUN mkdir /app
-RUN mkdir /app/www
+RUN mkdir -p /app/www
 
 WORKDIR /app
 
