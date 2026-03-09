@@ -4,16 +4,18 @@ services:
             context: .
             dockerfile: Dockerfile.app
         environment:
-            KEY: my-env-variable
+            my-env-variable: "hello from the compose file!"
         volumes:
             - ./www:/app/www
     nginx:
         image: nginx:latest
+        ports:
+            - 8081:80
         configs:
             - source: nginx_conf
               target: /etc/nginx/nginx.conf
-        ports:
-            - 8081:80
+        depends_on:
+            - app
 
 configs:
     nginx_conf:

@@ -4,9 +4,6 @@ FROM python:3.12-alpine
 # Image labels/tags
 LABEL maintainer="Miguel Matos"
 
-# Execute the command to create a folder for the application code
-RUN mkdir /app
-
 # Define the working directory inside the Docker container
 WORKDIR /app
 

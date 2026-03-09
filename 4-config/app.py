@@ -17,7 +17,7 @@ async def read_index():
     with open(index_file_path, 'r') as file:
         html_content = file.read()
     
-    html_content = html_content.replace("{replace}", os.getenv("KEY", "default"))
+    html_content = html_content.replace("{replace}", os.getenv("my-env-variable", "default string"))
     
     return HTMLResponse(content=html_content)
 

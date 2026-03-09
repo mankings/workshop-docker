@@ -2,8 +2,7 @@ FROM python:3.12-alpine
 
 LABEL maintainer="Miguel Matos"
 
-RUN mkdir /app
-RUN mkdir /app/www
+RUN mkdir -p /app/www
 
 WORKDIR /app
 
@@ -14,7 +13,5 @@ RUN pip install -r requirements.txt
 COPY app.py app.py
 
 EXPOSE 8080
-
-VOLUME /app/www
 
 CMD ["python3", "app.py"] 

@@ -2,19 +2,16 @@ FROM python:3.12-alpine
 
 LABEL maintainer="Miguel Matos"
 
-RUN mkdir /app
+RUN mkdir -p /app/www
 
-# Make an extra folder for the data
-RUN mkdir /app/www
-
-# All the same
 WORKDIR /app
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
-COPY app.py app.py
-EXPOSE 8080
 
-# Define a local volume for the data
-VOLUME /app/www
+COPY requirements.txt requirements.txt
+
+RUN pip install -r requirements.txt
+
+COPY app.py app.py
+
+EXPOSE 8080
 
 CMD ["python3", "app.py"]
