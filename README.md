@@ -79,7 +79,7 @@ docker compose down
 
 ### 4 - Config
 
-Builds on the previous example by adding **environment variables** and **Docker configs**. The app reads an env var (`KEY`) and injects its value into the HTML page. Nginx is configured using a Docker `configs` object instead of a custom Dockerfile.
+Builds on the previous example by adding **environment variables** and **Docker configs**. The app reads an env var (`my-env-variable`) and injects its value into the HTML page. Nginx is configured using a Docker `configs` object instead of a custom Dockerfile.
 
 ```bash
 cd 4-config
@@ -89,7 +89,7 @@ Start the services:
 ```bash
 docker compose up
 ```
-Open http://localhost:8081 — you should see the value of `my-env-variable` (``) rendered on the page. Try changing the value in `docker-compose.yml` and restarting to see the effect.
+Open http://localhost:8081 — you should see the value of `hello from the compose file!` rendered on the page. Try changing the value in `docker-compose.yml` and restarting to see the effect.
 
 Stop and remove the container services once you're done:
 ```bash
